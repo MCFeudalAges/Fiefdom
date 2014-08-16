@@ -248,14 +248,23 @@ public class RegionBoard extends Entity<RegionBoard> implements RegionBoardInter
 		String factionID = faction.getId();
 		
 		Set<Region> ret = new HashSet<Region>();
+		
+		if(faction.isNone()) {
+			ret.add(RegionCollections.get().get(this).getNone());
+		}
+		
 		for (Entry<PS, RegionAccess> entry : this.map.entrySet()) {
 			RegionAccess ra = entry.getValue();
 			
 			Region region = ra.getAssociatedRegion(faction);
 			if(ret.contains(region)) continue;
 			
+			Factions.get().log("WantedOwnerID "+ factionID + " Owning Fact ID" + region.getOwningFactionId());
+			
 			String owner = region.getOwningFactionId();
-			if(MUtil.equals(factionID, owner)) continue;
+			if(!MUtil.equals(factionID, owner)) continue;
+			
+			Factions.get().log("Added " + region.getName() + " owner " + region.getOwningFaction().getName());
 			
 			ret.add(region);
 		}
