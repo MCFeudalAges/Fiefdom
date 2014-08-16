@@ -133,7 +133,10 @@ public class FactionsListenerMain implements Listener
 	// -------------------------------------------- //
 	
 	public void chunkChangeRegionInfo(UPlayer uplayer, Player player, PS chunkFrom, PS chunkTo, Region regionFrom, Region regionTo) {
-		if(regionFrom != regionTo) {
+		if(uplayer.isRegionMapAutoUpdating()) {
+			Factions.get().log("Region Map is auto updating");
+			uplayer.sendMessage(RegionBoardCollections.get().getMap(uplayer.getFaction(), chunkTo, player.getLocation().getYaw()));
+		} else if(regionFrom != regionTo) {
 			Faction factionTo = regionTo.getOwningFaction();
 			String msg = Txt.parse("<i>") + " ~ " + regionTo.getName() + Txt.parse("<white>") + " is owned by " + Txt.parse("<notice>") + factionTo.getName();
 			if(factionTo.hasDescription()) {
@@ -149,6 +152,7 @@ public class FactionsListenerMain implements Listener
 		// send host faction info updates
 		if (uplayer.isMapAutoUpdating())
 		{
+			Factions.get().log("Board Map is auto updating");
 			uplayer.sendMessage(BoardColls.get().getMap(uplayer, chunkTo, player.getLocation().getYaw()));
 		}
 		else if (factionFrom != factionTo)

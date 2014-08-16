@@ -5,6 +5,7 @@ import org.nowireless.factions.entity.RegionBoardCollections;
 import com.massivecraft.factions.Perm;
 import com.massivecraft.factions.cmd.FCommand;
 import com.massivecraft.factions.cmd.req.ReqFactionsEnabled;
+import com.massivecraft.massivecore.cmd.arg.ARBoolean;
 import com.massivecraft.massivecore.cmd.req.ReqHasPerm;
 import com.massivecraft.massivecore.cmd.req.ReqIsPlayer;
 import com.massivecraft.massivecore.ps.PS;
@@ -25,6 +26,16 @@ public class CmdFactionsRegionMap extends FCommand {
 		if(!this.argIsSet(0)) {
 			showMap();
 			return;
+		}
+		
+		if(this.arg(0, ARBoolean.get(), !msender.isRegionMapAutoUpdating())) {
+			showMap();
+			msender.setRegionMapAutoUpating(true);
+			msg("<i>Region Map auto update <green>ENABLED.");
+		} else {
+			// Turn off
+			msender.setRegionMapAutoUpating(false);
+			msg("<i>Region Map auto update <red>DISABLED.");
 		}
 	}
 	

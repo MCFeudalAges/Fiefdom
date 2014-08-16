@@ -141,6 +141,9 @@ public class UPlayer extends SenderEntity<UPlayer> implements EconomyParticipato
 	public boolean isMapAutoUpdating() { return MPlayer.get(this).isMapAutoUpdating(); }
 	public void setMapAutoUpdating(boolean mapAutoUpdating) { MPlayer.get(this).setMapAutoUpdating(mapAutoUpdating); }
 	
+	public boolean isRegionMapAutoUpdating() { return MPlayer.get(this).isRegionMapAutoUpdating(); }
+	public void setRegionMapAutoUpdateing(boolean auto) { MPlayer.get(this).setRegionMapAutoUpating(auto); }
+	
 	public boolean isUsingAdminMode() { return MPlayer.get(this).isUsingAdminMode(); }
 	public void setUsingAdminMode(boolean usingAdminMode) { MPlayer.get(this).setUsingAdminMode(usingAdminMode); }
 	
