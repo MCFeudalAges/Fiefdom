@@ -35,8 +35,7 @@ public class RegionCollection extends Coll<Region>{
 
 			//BoardColls.get().clean();
 			UPlayerColls.get().clean();
-			//TODO 
-			//RegionMapColls.get().clean();
+			RegionBoardCollections.get().clean();
 		}
 		return ret;
 	}
