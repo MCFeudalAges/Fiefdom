@@ -60,8 +60,19 @@ public enum Perm
 	UNCLAIM("unclaim"),
 	UNCLAIM_ALL("unclaimall"),
 	VERSION("version"),
-	
+	REGION("region"),
+	REGION_CLAIM("region.claim"), 
+	REGION_UNCLAIM("region.unclaim"),
+	SHOW_REGION("region.show"),
+	CREATE_REGION("region.create"),
+	REGION_ADD_CHUNK("region.addchunk"),
+	REGION_DISOLVE("region.dissolve"),
+	REGION_REMOVE_CHUNK("region.removechunk"),
+	REGION_SET_CLAIMABLE("region.setclaimable"),
+	REGION_LIST("region.list"),
+	REGION_MAP("region.map")
 	// END OF LIST
+
 	;
 	
 	// -------------------------------------------- //

@@ -5,6 +5,10 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+
+import org.nowireless.factions.entity.Region;
+import org.nowireless.factions.entity.RegionBoardCollections;
 
 import com.massivecraft.factions.cmd.arg.ARFaction;
 import com.massivecraft.factions.cmd.req.ReqFactionsEnabled;
@@ -170,6 +174,13 @@ public class CmdFactionsFaction extends FCommand
 		{
 			sendMessage(Txt.parse("<a>Followers offline (%s): ", followerNamesOffline.size()) + Txt.implode(followerNamesOffline, sepparator));
 		}
+		
+		Set<Region> ownedRegions = RegionBoardCollections.get().getOwnedRegions(faction);
+		List<String> regionNames = new ArrayList<String>(ownedRegions.size());
+		for(Region region : ownedRegions) {
+			regionNames.add(Txt.parse("<g>" + region.getName()));
+		}
+		sendMessage(Txt.parse("<a>Regions: ") + Txt.implode(regionNames, sepparator));
 	}
 	
 }

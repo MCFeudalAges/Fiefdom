@@ -1,5 +1,13 @@
 package com.massivecraft.factions;
 
+import org.nowireless.factions.RegionAccess;
+import org.nowireless.factions.adapter.RegionAccessAdapter;
+import org.nowireless.factions.adapter.RegionBoardAdapter;
+import org.nowireless.factions.adapter.RegionBoardMapAdapter;
+import org.nowireless.factions.entity.RegionBoard;
+import org.nowireless.factions.entity.RegionBoardCollections;
+import org.nowireless.factions.entity.RegionCollections;
+
 import com.massivecraft.factions.adapter.BoardAdapter;
 import com.massivecraft.factions.adapter.BoardMapAdapter;
 import com.massivecraft.factions.adapter.FFlagAdapter;
@@ -119,6 +127,8 @@ public class Factions extends MassivePlugin
 		UPlayerColls.get().init();
 		FactionColls.get().init();
 		BoardColls.get().init();
+		RegionCollections.get().init();
+		RegionBoardCollections.get().init();
 		FactionColls.get().reindexUPlayers();
 		this.databaseInitialized = true;
 		
@@ -177,6 +187,9 @@ public class Factions extends MassivePlugin
 		.registerTypeAdapter(Rel.class, RelAdapter.get())
 		.registerTypeAdapter(FPerm.class, FPermAdapter.get())
 		.registerTypeAdapter(FFlag.class, FFlagAdapter.get())
+		.registerTypeAdapter(RegionAccess.class, RegionAccessAdapter.get())
+		.registerTypeAdapter(RegionBoard.class, RegionBoardAdapter.get())
+		.registerTypeAdapter(RegionBoard.MAP_TYPE, RegionBoardMapAdapter.get())
 		;
 	}
 	

@@ -7,6 +7,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.nowireless.factions.entity.RegionBoardCollections;
 
 import com.massivecraft.factions.EconomyParticipator;
 import com.massivecraft.factions.FFlag;
@@ -69,6 +70,8 @@ public class Faction extends Entity<Faction> implements EconomyParticipator
 		
 		// Clean the uplayers
 		UPlayerColls.get().getForUniverse(universe).clean();
+		
+		RegionBoardCollections.get().getForUniverse(universe).clean();
 	}
 	
 	// -------------------------------------------- //

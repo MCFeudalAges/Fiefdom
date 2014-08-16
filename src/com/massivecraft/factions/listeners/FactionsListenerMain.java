@@ -53,6 +53,8 @@ import org.bukkit.event.player.PlayerKickEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.projectiles.ProjectileSource;
+import org.nowireless.factions.entity.Region;
+import org.nowireless.factions.entity.RegionBoardCollections;
 
 import com.massivecraft.factions.FFlag;
 import com.massivecraft.factions.FPerm;
@@ -117,14 +119,30 @@ public class FactionsListenerMain implements Listener
 		Faction factionFrom = BoardColls.get().getFactionAt(chunkFrom);
 		Faction factionTo = BoardColls.get().getFactionAt(chunkTo);
 		
+		Region regionTo = RegionBoardCollections.get().getRegionAt(chunkTo);
+		Region regionFrom = RegionBoardCollections.get().getRegionAt(chunkFrom);
+		
 		// ... and send info onwards.
 		this.chunkChangeTerritoryInfo(uplayer, player, chunkFrom, chunkTo, factionFrom, factionTo);
+		this.chunkChangeRegionInfo(uplayer, player, chunkFrom, chunkTo, regionFrom, regionTo);
 		this.chunkChangeAutoClaim(uplayer, chunkTo);
 	}
 	
 	// -------------------------------------------- //
 	// CHUNK CHANGE: TERRITORY INFO
 	// -------------------------------------------- //
+	
+	public void chunkChangeRegionInfo(UPlayer uplayer, Player player, PS chunkFrom, PS chunkTo, Region regionFrom, Region regionTo) {
+		if(regionFrom != regionTo) {
+			Faction factionTo = regionTo.getOwningFaction();
+			String msg = Txt.parse("<i>") + " ~ " + regionTo.getName() + Txt.parse("<white>") + " is owned by " + Txt.parse("<notice>") + factionTo.getName();
+			if(factionTo.hasDescription()) {
+				
+			}
+			player.sendMessage(msg);
+		}
+		
+	}
 	
 	public void chunkChangeTerritoryInfo(UPlayer uplayer, Player player, PS chunkFrom, PS chunkTo, Faction factionFrom, Faction factionTo)
 	{

@@ -44,6 +44,13 @@ public class MPlayer extends SenderEntity<MPlayer>
 	public boolean isMapAutoUpdating() { return this.mapAutoUpdating; }
 	public void setMapAutoUpdating(boolean mapAutoUpdating) { this.mapAutoUpdating = mapAutoUpdating; this.changed(); }
 	
+	private boolean regionMapUpdating = false;
+	public boolean isRegionMapAutoUpdating() { return this.regionMapUpdating; }
+	public void setRegionMapAutoUpating(boolean regionMapAutoUpdating) {
+		this.regionMapUpdating = regionMapAutoUpdating;
+		this.changed();
+	}
+	
 	private boolean usingAdminMode = false;
 	public boolean isUsingAdminMode()
 	{

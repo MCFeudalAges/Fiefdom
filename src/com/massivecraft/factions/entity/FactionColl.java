@@ -3,6 +3,8 @@ package com.massivecraft.factions.entity;
 import java.util.*;
 
 import org.bukkit.ChatColor;
+import org.nowireless.factions.entity.RegionBoardCollections;
+import org.nowireless.factions.entity.RegionCollections;
 
 import com.massivecraft.massivecore.store.Coll;
 import com.massivecraft.massivecore.store.MStore;
@@ -52,6 +54,7 @@ public class FactionColl extends Coll<Faction>
 			
 			BoardColls.get().clean();
 			UPlayerColls.get().clean();
+			RegionBoardCollections.get().clean();
 		}
 		
 		return ret;

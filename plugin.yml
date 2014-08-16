@@ -60,6 +60,17 @@ permissions:
   factions.unclaim: {description: unclaim land where you stand, default: false}
   factions.unclaimall: {description: unclaim all land, default: false}
   factions.version: {description: see plugin version, default: false}
+  factions.region: {description: Region Stuff, default: false}
+  factions.region.addchunk: {description: add an chunk to a region, default: false}
+  factions.region.create: {description: Creates a region, default: false}
+  factions.region.dissolve: {description: dissolve a region, default: false}
+  factions.region.removechunk: {description: removes a chunk from a region, default: false}
+  factions.region.claim: {description: Claim, default: false}
+  factions.region.unclaim: {description: Unclaim, default: false}
+  factions.region.show: {description: Show current region, default: false}
+  factions.region.setclaimable: {description: Enables Claiming for region, default: false }
+  factions.region.list: {description: Lists available regions, default: false }
+  factions.region.map: {description: Shows a map of the near by regions, default: false }
 # -------------------------------------------- #
 # STAR NOTATION
 # -------------------------------------------- #
@@ -115,6 +126,17 @@ permissions:
       factions.unclaim: true
       factions.unclaimall: true
       factions.version: true
+      factions.region: true
+      factions.region.create: true
+      factions.region.claim: true
+      factions.region.unclaim: true
+      factions.region.show: true
+      factions.region.addchunk: true
+      factions.region.dissolve: true
+      factions.region.removechunk: true
+      factions.region.setclaimable: true
+      factions.region.list: true
+      factions.region.map: true
 # -------------------------------------------- #
 # KITS
 # -------------------------------------------- #
