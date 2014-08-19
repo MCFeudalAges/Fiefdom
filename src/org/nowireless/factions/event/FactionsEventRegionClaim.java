@@ -8,8 +8,8 @@ import com.massivecraft.factions.entity.Faction;
 import com.massivecraft.factions.event.EventFactionsAbstractSender;
 
 public class FactionsEventRegionClaim extends EventFactionsAbstractSender{
-	
 	private static final HandlerList handlers = new HandlerList();
+	
 	@Override
 	public HandlerList getHandlers() { return handlers; }
 	public static HandlerList getHandlerList() { return handlers; }
@@ -28,7 +28,7 @@ public class FactionsEventRegionClaim extends EventFactionsAbstractSender{
 
 	private final Region region;
 	public Region getRegion() { return region; }
-
+	
 	public FactionsEventRegionClaim(CommandSender sender, Region region, Faction oldFaction, Faction newFaction) {
 		super(sender);
 		// TODO Auto-generated constructor stub

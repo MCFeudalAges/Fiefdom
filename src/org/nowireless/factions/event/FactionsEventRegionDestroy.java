@@ -9,8 +9,8 @@ public class FactionsEventRegionDestroy extends EventFactionsAbstractSender {
 	private static final HandlerList handlers = new HandlerList();
 	
 	@Override
-	public HandlerList getHandlers() {return handlers; }
-	public static HandlerList getHadlerList() {return handlers; }
+	public HandlerList getHandlers() { return handlers; }
+	public static HandlerList getHandlerList() { return handlers; }
 	
 	private final String regionId;
 	public String getRegionId() { return this.regionId; }
