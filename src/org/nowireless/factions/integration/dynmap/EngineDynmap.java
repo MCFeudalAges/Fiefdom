@@ -171,7 +171,7 @@ public class EngineDynmap implements Listener {
 	}
 	
 	private void requestUpdate() {
-		Factions.get().log(Txt.parse("<i>Requesing Update"));
+		Factions.get().log(Txt.parse("<i>Requesing Dynmap Update"));
 		if(pending == null) {
 			Updater update = new Updater();
 			update.runOnce = true;
@@ -181,6 +181,7 @@ public class EngineDynmap implements Listener {
 	}
 	
 	private void updateRegions() {
+		Factions.get().log(Txt.parse("<i>Stating Dynmap Update"));
 		Map<String, AreaMarker> newMap = new HashMap<String, AreaMarker>();
 		Map<String, Marker> newMark = new HashMap<String, Marker>();
 		
@@ -360,16 +361,13 @@ public class EngineDynmap implements Listener {
 						z[i] = (double) line[1] * (double) blocksize;
 					}
 					/* Find existing one */
-					Factions.get().log(
-							Txt.parse("<i>Res Area <v>" + resAreas.toString()));
+					//Factions.get().log(Txt.parse("<i>Res Area <v>" + resAreas.toString()));
 					AreaMarker m = resAreas.remove(polyid); /* Existing area? */
 					if (m == null) {
 						m = markerSet.createAreaMarker(polyid, regionName,
 								false, world, x, z, false);
 						if (m == null) {
-							Factions.get()
-									.log(Txt.parse("<bad>Error adding area marker <v>"
-											+ polyid));
+							Factions.get().log(Txt.parse("<bad>Error adding area marker <v>" + polyid));
 							return;
 						}
 					} else {
