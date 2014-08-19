@@ -194,5 +194,11 @@ public class Region extends Entity<Region>{
 		this.changed();
 	}
 
-
+	/*
+	 * Empire
+	 */
+	
+	public double regionPower() {
+		return 0;
+	}
 }

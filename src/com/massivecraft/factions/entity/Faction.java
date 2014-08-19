@@ -1083,4 +1083,13 @@ public class Faction extends Entity<Faction> implements EconomyParticipator
 		return Mixin.msgPredictate(new FactionEqualsPredictate(this), msgs);
 	}
 	
+	/*
+	 * Empire
+	 */
+	
+	//TODO
+	public boolean isEmpire() {
+		return false;
+	}
+	
 }
