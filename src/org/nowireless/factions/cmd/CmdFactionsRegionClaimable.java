@@ -2,6 +2,7 @@ package org.nowireless.factions.cmd;
 
 import org.nowireless.factions.entity.Region;
 import org.nowireless.factions.entity.RegionBoardCollections;
+import org.nowireless.factions.event.FactionsEventRegionChanged;
 
 import com.massivecraft.factions.Factions;
 import com.massivecraft.factions.Perm;
@@ -37,6 +38,10 @@ public class CmdFactionsRegionClaimable extends FCommand {
 			msg("Region is already claimable");
 			return;
 		}
+		
+		FactionsEventRegionChanged event = new FactionsEventRegionChanged(sender, region);
+		event.run();
+		if(event.isCancelled()) return;
 		
 		Factions.get().log("Region:" + region.getName() + " ID: " + region.getId() +" is now claimable");
 		msg("Claiming is now enabled for " + region.getName());
