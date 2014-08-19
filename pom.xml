@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.mcfeudalages</groupId>
 	<artifactId>Factions</artifactId>
-	<version>3.0.1</version>
+	<version>3.1.0-SNAPSHOT</version>
 
 	<properties>
 		<project.build.sourceEncoding>Cp1252</project.build.sourceEncoding>
