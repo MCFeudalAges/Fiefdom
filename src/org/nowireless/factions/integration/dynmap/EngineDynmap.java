@@ -423,17 +423,25 @@ public class EngineDynmap implements Listener {
     private void addStyle(String resid, AreaMarker m, Region region) {
         AreaStyle as = this.defaultStyle;
         
-        int sc = 0xFF0000;
-        int fc = 0xFF0000;
+        int sc = 0x0000FF;
+        int fc = 0x0000FF;
         
         String stroke = as.strokecolor;
         String fill = as.fillcolor;
         
-        try {
-            sc = Integer.parseInt(stroke.substring(1), 16);
-            fc = Integer.parseInt(fill.substring(1), 16);
-        } catch (NumberFormatException nfx) {
+        if(region.isOwned()) {
+        	sc = 0xFF0000;
+        	fc = 0xFF0000;
+        } else if(region.isClaimable()) {
+        	sc = 0x00FF00;
+        	fc = 0x00FF00;
         }
+        
+        //try {
+        //    sc = Integer.parseInt(stroke.substring(1), 16);
+       //     fc = Integer.parseInt(fill.substring(1), 16);
+        //} catch (NumberFormatException nfx) {
+       // }
         m.setLineStyle(as.strokeweight, as.strokeopacity, sc);
         m.setFillStyle(as.fillopacity, fc);
         m.setBoostFlag(as.boost);
