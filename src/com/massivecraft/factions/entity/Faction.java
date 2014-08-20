@@ -127,6 +127,8 @@ public class Faction extends Entity<Faction> implements EconomyParticipator
 	// Null means default for the universe.
 	private Map<FPerm, Set<Rel>> perms = null;
 	
+	private Boolean isEmpire = null;
+	
 	// -------------------------------------------- //
 	// FIELD: id
 	// -------------------------------------------- //
@@ -1087,9 +1089,15 @@ public class Faction extends Entity<Faction> implements EconomyParticipator
 	 * Empire
 	 */
 	
-	//TODO
+	public void setEmpire(boolean state) {
+		this.isEmpire = state;
+		this.changed();
+	}
+	
 	public boolean isEmpire() {
-		return false;
+		if(isEmpire == null) return false;
+		if(this.isNone()) return false;
+		return this.isEmpire();
 	}
 	
 }

@@ -231,6 +231,12 @@ public class UConf extends Entity<UConf>
 		EventFactionsChunkChangeType.PILLAGE, false
 	);
 	
+	/*
+	 * Empire
+	 */
+	public double minEmpirePower;
+	
+	
 	// -------------------------------------------- //
 	// INTEGRATION: ECONOMY
 	// -------------------------------------------- //

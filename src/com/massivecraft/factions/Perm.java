@@ -70,7 +70,8 @@ public enum Perm
 	REGION_REMOVE_CHUNK("region.removechunk"),
 	REGION_SET_CLAIMABLE("region.setclaimable"),
 	REGION_LIST("region.list"),
-	REGION_MAP("region.map")
+	REGION_MAP("region.map"),
+	EMPIRE_CREATE("empire.create")
 	// END OF LIST
 
 	;
