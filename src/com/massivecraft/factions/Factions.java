@@ -7,6 +7,7 @@ import org.nowireless.factions.adapter.RegionBoardMapAdapter;
 import org.nowireless.factions.entity.RegionBoard;
 import org.nowireless.factions.entity.RegionBoardCollections;
 import org.nowireless.factions.entity.RegionCollections;
+import org.nowireless.factions.integration.dynmap.IntegrationDynmap;
 
 import com.massivecraft.factions.adapter.BoardAdapter;
 import com.massivecraft.factions.adapter.BoardMapAdapter;
@@ -150,7 +151,8 @@ public class Factions extends MassivePlugin
 		// Integrate
 		this.integrate(
 			IntegrationHerochat.get(),
-			IntegrationLwc.get()
+			IntegrationLwc.get(),
+			IntegrationDynmap.get()
 		);
 		
 		// Schedule recurring non-tps-dependent tasks
