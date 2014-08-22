@@ -1,5 +1,6 @@
 package com.massivecraft.factions;
 
+import org.nowireless.factions.MOTDEngine;
 import org.nowireless.factions.RegionAccess;
 import org.nowireless.factions.adapter.RegionAccessAdapter;
 import org.nowireless.factions.adapter.RegionBoardAdapter;
@@ -147,6 +148,8 @@ public class Factions extends MassivePlugin
 		// The goal is that the Econ integration should be completely based on listening to our own events.
 		// Right now only a few situations are handled through this listener.
 		FactionsListenerEcon.get().setup();
+		
+		MOTDEngine.get().activate();
 		
 		// Integrate
 		this.integrate(
