@@ -85,6 +85,7 @@ public class Region extends Entity<Region>{
 	}
 	
 	public boolean isOwned() {
+		if(this.getOwningFactionId().equalsIgnoreCase(UConf.get(this).factionIdNone)) return false;
 		return this.ownerFactionId != null;
 	}
 	
@@ -93,7 +94,7 @@ public class Region extends Entity<Region>{
 	}
 	
 	public String getFactionName() {
-		return factionName;
+		return this.getOwningFaction().getName();
 	}
 
 	public void setOwnerFaction(String owner) {
@@ -104,6 +105,7 @@ public class Region extends Entity<Region>{
 		this.changed();
 	}
 
+	@Deprecated
 	public void setOwnerFactionName(String factName) {
 		String name = factName;
 		if(name == null) return;

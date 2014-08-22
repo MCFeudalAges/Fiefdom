@@ -423,10 +423,7 @@ public class EngineDynmap implements Listener {
         
         int sc = 0x0000FF;
         int fc = 0x0000FF;
-        
-        String stroke = as.strokecolor;
-        String fill = as.fillcolor;
-        
+      
         if(region.isOwned()) {
         	sc = 0xFF0000;
         	fc = 0xFF0000;
@@ -434,19 +431,21 @@ public class EngineDynmap implements Listener {
         	sc = 0x00FF00;
         	fc = 0x00FF00;
         }
-        
-        //try {
-        //    sc = Integer.parseInt(stroke.substring(1), 16);
-       //     fc = Integer.parseInt(fill.substring(1), 16);
-        //} catch (NumberFormatException nfx) {
-       // }
+    
         m.setLineStyle(as.strokeweight, as.strokeopacity, sc);
         m.setFillStyle(as.fillopacity, fc);
         m.setBoostFlag(as.boost);
     }
 	
 	private String formatInfoWindow(Region region) {
-		return "";
+		String infowindow = "<div class=\"infowindow\"><span style=\"font-size:120%;\">%regionname%</span><br />Flags<br /><span style=\"font-weight:bold;\">%flags%</span></div>";
+		String v = "<div class=\"regioninfo\">"+infowindow+"</div>";
+		v = v.replace("%regionname%", ChatColor.stripColor(region.getName()));
+		String flags = "Open: " + region.isClaimable();
+		flags += "<br/>" + "Owner: " + ChatColor.stripColor(region.getFactionName());
+		v = v.replace("%flags%", flags);
+		Factions.get().log(v);
+		return v;
 	}
 	
 	private boolean isVisable(String id, String world) {
